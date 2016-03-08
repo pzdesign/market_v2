@@ -1,0 +1,100 @@
+{block content}
+
+<h1 n:block="title">Administrace</h1>
+
+<ul class="nav nav-tabs">
+  <li><a n:href="default">Home</a></li>
+  <li><a n:href="admins">Administrátoři</a></li>
+  <li class="active"><a>Itemy</a></li>
+  <li><a n:href="coupons">Slevové kupóny</a></li>
+  <li><a n:href="motd">MOTD</a></li>
+</ul>
+<br>
+<h3>Vytvořit nový item</h3>
+{form newItemForm class => ajax}
+    {input item_name_cs style => 'float:left'}
+    {input item_name_en}
+    {input item_id style => 'float:left'}
+    {input item_data}
+    {input image style => 'float:left'}
+    {input price}
+    {input price_discount}
+    {input submit}
+{/form}
+
+<h3>Seznam itemů</h3>
+
+<div style="text-align: center">
+<ul class="pagination">
+        <li {if $paginator->first}class="disabled"{/if}><a {if $paginator->first == false}href="?page={$paginator->getPage() - 1}"{/if}>&laquo;</a></li>
+        {for $i = 1; $i <= $paginator->pageCount; $i++}<li {if $paginator->getPage() == $i}class="active"{/if}><!--PAGE--><a href="?page={$i}">{$i}</a></li>{/for}
+        <li {if $paginator->last}class="disabled"{/if}><a {if $paginator->last == false}href="?page={$paginator->getPage() + 1}"{/if}>&raquo;</a></li>
+</ul>
+</div>
+
+{snippet itemsTable}
+{foreach $items as $item}
+    <!-- Modal -->
+    <div class="modal fade" id="edit_{$item->id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Editace itemu</h4>
+                </div>
+                {form editItemForm class => ajax}
+                    <div class="modal-body">
+                        CZ název: {input item_name_cs value => $item->item_name_cs}<br>
+                        EN název: {input item_name_en value => $item->item_name_en}<br>
+                        ID itemu: {input item_id value => $item->item_id}:{input item_data value => $item->item_data}<br>
+                        Obrázek (odkaz): {input image value => $item->image}<br>
+                        Cena: {input price value => $item->price}<br>
+                        Sleva: {input price_discount value => $item->price_discount}<br>
+                        {input id value => $item->id}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                        {input submit}
+                    </div>
+                {/form}
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+{/foreach}
+<table class="table table-hover" style="text-align: center">
+    <thead>
+    <tr>
+	<th>#</th>
+	<th>Název</th>
+	<th>Item ID</th>
+	<th>Odkaz na ikonu</th>
+	<th>Cena</th>
+	<th>Sleva</th>
+	<th></th>
+	<th><span class="jstooltip" data-original-title="<span class='glyphicon glyphicon-eye-open'></span> = viditelný<br><span class='glyphicon glyphicon-eye-close'></span> = neviditelný">Viditelnost</span></th>
+	<th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr n:foreach="$items as $item">
+	<td>{$item->id}</td>
+	<td><span class="jstooltip" data-original-title="{$item->item_name_cs}">{$item->item_name_en}</span></td>
+	<td>{$item->item_id}{if $item->item_data !== 0}:{$item->item_data}{/if}</td>
+	<td><span class="jstooltip" data-original-title="<img src='{$basePath}{$item->image|replace:'./':'/'}'>">{$item->image}</span></td>
+	<td>{$item->price}</td>
+	<td>{$item->price_discount}</td>
+	<td><button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit_{$item->id}">Editovat</button></td>
+	<td>{if $item->visible == 1}<a n:href="unvisible! $item->id" class="ajax"><span onmouseenter="changeEye('close', {$item->id});" onmouseleave="changeEye('open', {$item->id});" id='changeEye_{$item->id}' class='glyphicon glyphicon-eye-open trash'></span></a>{else}<a n:href="visible! $item->id" class="ajax"><span onmouseenter="changeEye('open', {$item->id});" onmouseleave="changeEye('close', {$item->id});" id='changeEye_{$item->id}' class='glyphicon glyphicon-eye-close trash'></span></a>{/if}</td>
+	<td><a n:href="removeItem! $item->id" class="ajax" data-confirm="Opravdu chcete odstranit tento item?"><span class="glyphicon glyphicon-remove trash"></span></a></td>
+    </tr>
+    </tbody>
+</table>
+{/snippet}
+
+<div style="text-align: center">
+<ul class="pagination">
+        <li {if $paginator->first}class="disabled"{/if}><a {if $paginator->first == false}href="?page={$paginator->getPage() - 1}"{/if}>&laquo;</a></li>
+        {for $i = 1; $i <= $paginator->pageCount; $i++}<li {if $paginator->getPage() == $i}class="active"{/if}><!--PAGE--><a href="?page={$i}">{$i}</a></li>{/for}
+        <li {if $paginator->last}class="disabled"{/if}><a {if $paginator->last == false}href="?page={$paginator->getPage() + 1}"{/if}>&raquo;</a></li>
+</ul>
+</div>

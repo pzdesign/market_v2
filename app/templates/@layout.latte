@@ -1,0 +1,99 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>{block title|striptags}Main{/block} | Webshop</title>
+
+	<link rel="stylesheet" media="screen,projection,tv" href="{$basePath}/css/bootstrap.css">
+	<link rel="stylesheet" media="print" href="{$basePath}/css/bootstrap.css">
+	<link rel="stylesheet" href="{$basePath}/css/alertify.core.css" />
+	<link rel="stylesheet" href="{$basePath}/css/alertify.bootstrap.css" />
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	{block head}{/block}
+</head>
+
+<body>
+<div class="wrap">
+        <div class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" n:href="Homepage:">{$parametry['servername']}</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Seznam serverů -->
+                    {*<li n:foreach='$parametry["servers"] as $server' class="dropdown"><a href="Server:{$server['name']}">{$server['name']}</a></li>*}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=""><a n:href="Cart:"><img src="{$basePath}/images/cart_16.png" class="img_cart"> Košík</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <!-- Informace o hráči -->
+	<div n:if="$user->isLoggedIn()" class="user-info">
+            <table class="table table-bordered">
+                <tbody n:snippet="userInfo">
+                <tr>
+                    <td>Uživatelské jméno</td>
+                    <td>{$user->getIdentity()->username}</td>
+                </tr>
+                <tr>
+                    <td>Stav konta</td>
+                    <td>{$balance} {$parametry['mena']}</td>
+                </tr>
+                <tr>
+                    <td>Celková cena</td>
+		            <td n:snippet="totalCost">{$totalCost}{$parametry['mena']}</td>
+                </tr>
+		        <tr>
+		            <td>Možnosti:</td>
+		            <td><a class="btn btn-sm btn-primary" n:href="Sign:out"><span class="glyphicon glyphicon-log-out"></span> Odhlásit se</a></td>
+		        </tr>
+                </tbody>
+            </table>
+        </div>
+    <div n:if="$user->isLoggedIn()" class="user-info-arrow" onClick="userInfoMove()">
+            <img src="{$basePath}/images/arrow-down.svg" height="15px">
+    </div>
+    <!-- /Informace o hráči -->
+    <div class="container">
+	
+	<!--FLASHES-->
+	{snippet flashMessages}
+	<div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissable fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {$flash->message}
+	</div>
+	{/snippet}
+	{include #content}
+    </div>
+    </div>
+    <div class="panel-footer">
+    <div n:if="$user->isInRole('admin')"><a n:href="Admin:">Administrace</a></div>
+    <div n:if="$user->isLoggedIn()">Market 0.1; Coded by and designed by zdenda204. This application uses <a href="http://nette.org/">Nette Framework 2.1</a> & <a href="http://getbootstrap.com/">Bootstrap 2.3.2</a></div>
+    </div>
+    <script src="{$basePath}/js/jquery.js"></script>
+    <script src="{$basePath}/js/bootstrap.min.js"></script>
+    <script src="{$basePath}/js/alertify.min.js"></script>
+    <script src="{$basePath}/js/netteForms.js"></script>
+    <script src="{$basePath}/js/nette.ajax.js"></script>
+    <script src="{$basePath}/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{block #content}
+
+<h1 n:block="title">Administrace</h1>
+
+<ul class="nav nav-tabs">
+  <li><a n:href="default">Home</a></li>
+  <li class="active"><a>Administrátoři</a></li>
+  <li><a n:href="items">Itemy</a></li>
+  <li><a n:href="coupons">Slevové kupóny</a></li>
+  <li><a n:href="motd">MOTD</a></li>
+</ul>
+<br>
+<table class="table table-hover" style="text-align: center" n:snippet="adminsTable">
+    <thead>
+    <tr>
+	<th>Nick</th>
+	<th>Role</th>
+	<th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr n:foreach="$admins as $admin">
+	<td>{$admin->username}</td>
+	<td>{$admin->role}</td>
+	<td><a n:href="removeAdmin! $admin->id" class="ajax" data-confirm="Opravdu chcete odebrat administrátorská práva tomuto hráči?"><span class='glyphicon glyphicon-remove trash'></span></a></td>
+    </tr>
+    </tbody>
+</table>
+<div class="well" style="float: right; margin: 5px 0 10px">
+  {form addAdminForm class => ajax}{input username}{input submit}{/form}
+</div>

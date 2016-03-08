@@ -1,0 +1,16 @@
+{var $robots = noindex}
+
+{block content}
+<style n:syntax="off">
+    body {background-color: #eee !important}
+    .navbar {margin-bottom: 20px}
+</style>
+</div>
+<div class="signin">
+{form signInForm class => form-signin}
+<div class="alert alert-danger" style="margin-top: -20px;" n:foreach="$form->errors as $error">{$error}</div>
+{input username}
+{input password}
+{input submit}
+{/form}
+</div>

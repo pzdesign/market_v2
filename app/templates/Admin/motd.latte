@@ -1,0 +1,24 @@
+{block content}
+
+<h1 n:block="title">Administrace</h1>
+
+<ul class="nav nav-tabs">
+  <li><a n:href="default">Home</a></li>
+  <li><a n:href="admins">Administrátoři</a></li>
+  <li><a>Itemy</a></li>
+  <li><a n:href="coupons">Slevové kupóny</a></li>
+  <li class="active"><a n:href="motd">MOTD</a></li>
+</ul>
+<br>
+<h3>Aktuální MOTD</h3>
+{snippet actualMotd}
+<p n:if="$motd !== null">Aktuální motd vypadá takto:</p>
+<div n:if="$motd !== null" class='alert alert-success'>{$motd|noescape}</div>
+<p n:if="$motd == null">Motd není nastaveno.</p>
+{/snippet}
+<h3>Změnit MOTD</h3>
+<p style="font-style: italic">Můžete používat HTML tagy. Pokud chcete MOTD vypnout, <a n:href="disableMotd!" class="ajax">klikněte sem</a></p>
+{form editMotdForm class => ajax}
+    {input motd}
+    {input submit}
+{/form}

@@ -1,0 +1,63 @@
+common:
+	parameters:
+		# Název měny
+		mena: 'Kč'
+		# Název serveru
+		servername: 'TestCraft'
+        # IP serveru
+		ip: '93.91.250.120'
+		# AuthMe hash
+		authmeHash: 'SHA256'
+
+		# Nastavení databáze
+        # Adresa databáze
+		dbHost: '127.0.0.1'
+		# Uživatelské jméno do databáze
+		dbUser: 'root'
+		# Heslo do databáze
+		dbPassword: ''
+		# Název databáze
+		dbDatabase: 'market'
+
+		# Nastaveni pluginu JSONAPI
+		# Server listening port
+		port: 29239
+		# Uživatelské jméno
+		username: 'webshop'
+		# Uživatelské heslo
+		password: 'zdenda462'
+		timeout: 10
+	php:
+		date.timezone: Europe/Prague
+		# zlib.output_compression: yes
+
+	nette:
+		application:
+			errorPresenter: Error
+
+		database:
+			dsn: 'mysql:host=%dbHost%;dbname=%dbDatabase%'
+			user: %dbUser%
+			password: %dbPassword%
+
+		session:
+			expiration: 14 days
+
+	services:
+		authenticator: Authenticator
+		routerFactory: RouterFactory
+		router: @routerFactory::createRouter
+		amr: Market\AuthmeRepository
+		icr: Market\IconomyRepository
+		itr: Market\ItemsRepository
+		cp: Market\CartRepository
+		ur: Market\UserRepository
+		cr: Market\CouponRepository
+		jsonapi: Market\JSONAPI(%ip%, %port%, %username%, %password%, %timeout%)
+		sr: Market\SettingsRepository
+	factories:
+
+
+production < common:
+
+development < common:
