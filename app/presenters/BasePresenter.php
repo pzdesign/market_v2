@@ -28,6 +28,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	    $this->flashMessage("Musíš být přihlášen.", "warning");
 	    $this->redirect("Sign:in");
 	}
+
     }
     
     public function beforeRender(){
@@ -40,7 +41,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 	    $this->template->user = $this->getUser();
 	    $this->template->totalCost = $this->cp->calculatePrice($this->getUser()->getIdentity()->username);
 	}
-	
 	$this->template->parametry = $this->parametry;
     }
 }

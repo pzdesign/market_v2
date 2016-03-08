@@ -75,6 +75,7 @@ class CartPresenter extends BasePresenter {
     public function countFormSubmitted(UI\Form $form){
 	$count = $form->getValues()->count;
 	$id = $form->getValues()->itemid;
+
 	
 	if((!is_numeric($count)) || (!is_numeric($id))){
 	    $this->flashMessage("Id a počet musí být celé číslo!", "danger");
@@ -87,7 +88,7 @@ class CartPresenter extends BasePresenter {
 	}
 	
 	$inDb = $this->cp->getById($id)->fetch();
-	
+
 	if($inDb){
 	    if($inDb->owner !== $this->getUser()->getIdentity()->username){
 		$this->flashMessage("Tento item nepatří vám.", "danger");
@@ -108,15 +109,24 @@ class CartPresenter extends BasePresenter {
 	    return;
 	}else{
 	    $this->cp->setCountOfItem($id, $count);
-	    $this->flashMessage("Počet těchto itemů byl změněn na $count", 'success');
-	    
+	    //$this->flashMessage("Počet těchto itemů byl změněn na $count", 'success');
 	    if(!$this->isAjax()){
 		$this->redirect("this");
+	    } if ($count != $inDb->count) {
+	$payload = array();
+	$payload["itemId"] = $id;
+	$payload["itemCount"] = $count;
+	$payload["itemName"] = $this->itr->getItemName($inDb->item_id);
+	
+	$this->payload->caa = $payload;
+	$this->redrawControl("obsahKosiku");
 	    }
-	    $this->redrawControl("obsahKosiku");
 	    return;
 	}
     }
+
+
+
     
     public function handleClearCart(){
 	$this->cp->clearCart($this->getUser()->getIdentity()->username);

@@ -1,16 +1,16 @@
-<?php //netteCache[01]000369a:2:{s:4:"time";s:21:"0.46309700 1457453009";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\xampp\htdocs\market\app\templates\Cart\default.latte";i:2;i:1457453008;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000369a:2:{s:4:"time";s:21:"0.80776500 1457456322";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\xampp\htdocs\market\app\templates\Cart\default.latte";i:2;i:1457456319;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\Cart\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'unvbn8t4ud')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'rgoc6syfuj')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb98580feea9_content')) { function _lb98580feea9_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lbb429799b24_content')) { function _lbb429799b24_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
  ?>
 <div id="<?php echo $_control->getSnippetId('obsahKosiku') ?>"><?php call_user_func(reset($_l->blocks['_obsahKosiku']), $_l, $template->getParameters()) ?>
 </div><?php
@@ -19,7 +19,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb98580feea9_content')) { func
 //
 // block _obsahKosiku
 //
-if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lb44ed8616c8__obsahKosiku')) { function _lb44ed8616c8__obsahKosiku($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('obsahKosiku', FALSE)
+if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lb14d20fcc60__obsahKosiku')) { function _lb14d20fcc60__obsahKosiku($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('obsahKosiku', FALSE)
 ?>    <div style="text-align: center">
         <ul class="pagination" style="margin: 0 0 20px;">
             <li <?php if ($paginator->first) { ?>class="disabled"<?php } ?>><a <?php if ($paginator->first == false) { ?>

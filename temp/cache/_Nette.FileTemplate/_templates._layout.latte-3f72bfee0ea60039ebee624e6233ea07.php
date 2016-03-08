@@ -1,30 +1,30 @@
-<?php //netteCache[01]000364a:2:{s:4:"time";s:21:"0.03894300 1457452727";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:50:"C:\xampp\htdocs\market\app\templates\@layout.latte";i:2;i:1457452725;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000364a:2:{s:4:"time";s:21:"0.57761700 1457454886";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:50:"C:\xampp\htdocs\market\app\templates\@layout.latte";i:2;i:1457454866;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'g4yojjjd4i')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'u8zxh5f87k')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb20636797f5_title')) { function _lb20636797f5_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lb514bee6dea_title')) { function _lb514bee6dea_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>Main<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lbb4cc2c5ac6_head')) { function _lbb4cc2c5ac6_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lb597d3e9b2c_head')) { function _lb597d3e9b2c_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block _userInfo
 //
-if (!function_exists($_l->blocks['_userInfo'][] = '_lb075a854075__userInfo')) { function _lb075a854075__userInfo($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('userInfo', FALSE)
+if (!function_exists($_l->blocks['_userInfo'][] = '_lb1488e86c6e__userInfo')) { function _lb1488e86c6e__userInfo($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('userInfo', FALSE)
 ?>                <tr>
                     <td>Uživatelské jméno</td>
                     <td><?php echo Nette\Templating\Helpers::escapeHtml($user->getIdentity()->username, ENT_NOQUOTES) ?></td>
@@ -51,14 +51,14 @@ if (!function_exists($_l->blocks['_userInfo'][] = '_lb075a854075__userInfo')) { 
 //
 // block _totalCost
 //
-if (!function_exists($_l->blocks['_totalCost'][] = '_lb1ed8283b6c__totalCost')) { function _lb1ed8283b6c__totalCost($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('totalCost', FALSE)
+if (!function_exists($_l->blocks['_totalCost'][] = '_lbb78b8165ad__totalCost')) { function _lbb78b8165ad__totalCost($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('totalCost', FALSE)
 ;echo Nette\Templating\Helpers::escapeHtml($totalCost, ENT_NOQUOTES) ;echo Nette\Templating\Helpers::escapeHtml($parametry['mena'], ENT_NOQUOTES) ;
 }}
 
 //
 // block _flashMessages
 //
-if (!function_exists($_l->blocks['_flashMessages'][] = '_lb8184377247__flashMessages')) { function _lb8184377247__flashMessages($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('flashMessages', FALSE)
+if (!function_exists($_l->blocks['_flashMessages'][] = '_lb7066a2d671__flashMessages')) { function _lb7066a2d671__flashMessages($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('flashMessages', FALSE)
 ;$iterations = 0; foreach ($flashes as $flash) { ?>	<div class="alert alert-<?php echo htmlSpecialChars($flash->type) ?> alert-dismissable fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <?php echo Nette\Templating\Helpers::escapeHtml($flash->message, ENT_NOQUOTES) ?>

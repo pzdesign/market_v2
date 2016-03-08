@@ -1,16 +1,16 @@
-<?php //netteCache[01]000364a:2:{s:4:"time";s:21:"0.87105900 1388677264";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:50:"C:\xampp\htdocs\market\app\templates\Sign\in.latte";i:2;i:1388677262;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000364a:2:{s:4:"time";s:21:"0.99990700 1457455048";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:50:"C:\xampp\htdocs\market\app\templates\Sign\in.latte";i:2;i:1457454866;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\Sign\in.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '2z8ky3y5q6')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'p5cmzype0m')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbc6f4f2e9e8_content')) { function _lbc6f4f2e9e8_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lb6239c84042_content')) { function _lb6239c84042_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?><style>
     body {background-color: #eee !important}
     .navbar {margin-bottom: 20px}

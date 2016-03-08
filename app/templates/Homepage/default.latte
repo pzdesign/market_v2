@@ -1,15 +1,22 @@
 {block #content}
+{snippet list}
     <div n:if="$motd !== null" class='alert alert-success'>{$motd|noescape}</div>
     {if $items->fetch() == false}
     <div class="alert alert-danger">Momentálně se žádný item neprodává</div>
     {else}
+ 
+
     <div style="text-align: center">
-        <ul class="pagination" style="margin: 0 0 20px;">
-            <li {if $paginator->first}class="disabled"{/if}><a {if $paginator->first == false}href="?page={$paginator->getPage() - 1}"{/if}>&laquo;</a></li>
-            {for $i = 1; $i <= $paginator->pageCount; $i++}<li {if $paginator->getPage() == $i}class="active"{/if}><!--PAGE--><a href="?page={$i}">{$i}</a></li>{/for}
-            <li {if $paginator->last}class="disabled"{/if}><a {if $paginator->last == false}href="?page={$paginator->getLastPage()}"{/if}>&raquo;</a></li>
+        <ul n:snippet="pagi" class="pagination" style="margin: 0 0 20px;">
+            <li {if $paginator->first}class="disabled"{/if}><a class="ajax {if $paginator->first == false}disabled{/if}" n:href="change! $paginator->getPage()-1">&laquo;</a></li>
+            {for $i = 1; $i <= $paginator->pageCount; $i++}<li {if $paginator->getPage() == $i}class="active"{/if}><!--PAGE--><a class="ajax" n:href="change! $i">{$i}</a></li>{/for}
+            <li {if $paginator->last}class="disabled"{/if}><a class="ajax {if $paginator->last == false}disabled{/if}" n:href="change! $paginator->getPage()+1">&raquo;</a></li>
         </ul>
     </div>
+
+               <a href="?do=limit" class='btn btn-primary btn-xs buy jstooltip ajax'>
+                    <span class='glyphicon glyphicon-shopping-cart'></span>Koupit
+                </a>  
     <div class='row'>
         {foreach $items as $item}
             <div class="col-md-3">
@@ -18,19 +25,25 @@
                     <span class="item-name jstooltip" data-original-title="{$item['item_name_cs']}">{$item['item_name_en']}</span>
 		    <span n:if='$item["price_discount"] !== 0' class="label label-info discount">-{$item['price_discount']}%</span>
                     <input type='number' oninput="calculatePrice({$item['price']}, $('#itemEa_{$item['id']}').val(), {$item['id']}, {$parametry['mena']}, {$item['price_discount']});" value='1' placeholder='Počet' class='form-control ea' id='itemEa_{$item['id']}' min='1' max='1000'>
-			   <a href="?do=addToCart&itemId={$item['id']}&itemCount=1" class='btn btn-primary btn-xs buy jstooltip ajax' id='endPrice_{$item["id"]}' data-original-title='Cena je {if $item["price_discount"] !== 0}<s>{$item["price"]}{$parametry["mena"]}</s> {/if}{$item["price"] - (($item["price_discount"]/100) * $item["price"])}{$parametry["mena"]} za 1Ks<br>Celková cena je {if $item["price_discount"] !== 0}<s>{$item["price"]}{$parametry["mena"]}</s> {/if}{$item["price"] - (($item["price_discount"]/100) * $item["price"])}{$parametry["mena"]}'>
+			   <a 
+               href="?do=addToCart&itemId={$item['id']}&itemCount=1" 
+               class='btn btn-primary btn-xs buy jstooltip ajax' 
+               id='endPrice_{$item["id"]}' 
+               data-original-title='Cena je {if $item["price_discount"] !== 0}<s>{$item["price"]}{$parametry["mena"]}</s> {/if}{$item["price"] - (($item["price_discount"]/100) * $item["price"])}{$parametry["mena"]} za 1Ks<br>Celková cena je {if $item["price_discount"] !== 0}<s>{$item["price"]}{$parametry["mena"]}</s> {/if}{$item["price"] - (($item["price_discount"]/100) * $item["price"])}{$parametry["mena"]}'>
                         <span class='glyphicon glyphicon-shopping-cart'></span>Koupit
                     </a>
                 </div>
             </div>
         {/foreach}
 	</div>
+
     <div style="text-align: center">
     <ul class="pagination" style="margin: 0 0 15px;">
         <li {if $paginator->first}class="disabled"{/if}><a {if $paginator->first == false}href="?page={$paginator->getPage() - 1}"{/if}>&laquo;</a></li>
-        {for $i = 1; $i <= $paginator->pageCount; $i++}<li {if $paginator->getPage() == $i}class="active"{/if}><!--PAGE--><a href="?page={$i}">{$i}</a></li>{/for}
+        {for $i = 1; $i <= $paginator->pageCount; $i++}<li {if $paginator->getPage() == $i}class="active"{/if}><!--PAGE--><a class="ajax" n:href="change! $i">{$i}</a></li>{/for}
         <li {if $paginator->last}class="disabled"{/if}><a {if $paginator->last == false}href="?page={$paginator->getPage() + 1}"{/if}>&raquo;</a></li>
     </ul>
     </div>
     {/if}
+        {/snippet}    
 {/block}

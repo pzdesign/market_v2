@@ -24,6 +24,11 @@ class CartRepository extends \Market\Repository {
     public function getById($id){
 	return $this->findBy(array('id' => $id));
     }
+
+  public function getByItemId($id){
+    return $this->findBy(array('item_id' => $id));
+    }
+
     
     public function setCountOfItem($id, $count){
 	$this->findBy(array('id' => $id))->update(array('count' => $count));

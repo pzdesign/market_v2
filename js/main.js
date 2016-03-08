@@ -15,6 +15,9 @@ $.nette.ext({
         if(payload.buys){
 	    alertify.log("Do vašeho košíku bylo přidáno "+ payload.buys.itemCount +"x "+ payload.buys.itemName +" (ID "+ payload.buys.itemId +").");
 	}
+        if(payload.caa){
+        alertify.log("Nyní máte "+ payload.caa.itemCount +"x v košíku  "+ payload.caa.itemName );
+    }    
     }
 });
 

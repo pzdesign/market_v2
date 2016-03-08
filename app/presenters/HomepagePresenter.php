@@ -25,7 +25,21 @@ class HomepagePresenter extends BasePresenter
     $this->template->items = $this->itr->getItemsForServer($this->getView(), $this->paginator->getLength(), $this->paginator->getOffset());
 	$this->template->paginator = $this->paginator;
 	$this->template->motd = $this->sr->getMOTD();
+
     }
+
+   public function handleChange($page)
+    {
+
+	    if(!$this->isAjax()){
+		$this->redirect("this");
+	    }
+
+		$this->paginator->setPage($page);
+	    $this->redrawControl('list');
+	    return;
+    }
+
 
     public function handleAddToCart($itemId, $itemCount){
 	if((!is_numeric($itemCount)) || (!is_numeric($itemId))){
