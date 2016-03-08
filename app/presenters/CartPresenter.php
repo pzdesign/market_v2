@@ -40,6 +40,18 @@ class CartPresenter extends BasePresenter {
 	$this->template->price = $this->cp->calculatePrice($this->getUser()->getIdentity()->username);
     }
     
+   public function handleChange($page)
+    {
+
+	    if(!$this->isAjax()){
+		$this->redirect("this");
+	    }
+		$this->paginator->setPage($page);
+	    $this->redrawControl('obsahKosiku');
+	    return;
+    }
+
+
     public function handleRemoveFromCart($itemId){
 	$inDb = $this->cp->getById($itemId)->fetch();
 	

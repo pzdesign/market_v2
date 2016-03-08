@@ -1,16 +1,16 @@
-<?php //netteCache[01]000369a:2:{s:4:"time";s:21:"0.80776500 1457456322";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\xampp\htdocs\market\app\templates\Cart\default.latte";i:2;i:1457456319;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000369a:2:{s:4:"time";s:21:"0.72562300 1457471810";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\xampp\htdocs\market\app\templates\Cart\default.latte";i:2;i:1457471809;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\Cart\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'rgoc6syfuj')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'jrsq2bv7aw')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbb429799b24_content')) { function _lbb429799b24_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lb259c9cd7fd_content')) { function _lb259c9cd7fd_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
  ?>
 <div id="<?php echo $_control->getSnippetId('obsahKosiku') ?>"><?php call_user_func(reset($_l->blocks['_obsahKosiku']), $_l, $template->getParameters()) ?>
 </div><?php
@@ -19,19 +19,10 @@ if (!function_exists($_l->blocks['content'][] = '_lbb429799b24_content')) { func
 //
 // block _obsahKosiku
 //
-if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lb14d20fcc60__obsahKosiku')) { function _lb14d20fcc60__obsahKosiku($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('obsahKosiku', FALSE)
+if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lbf9ae3f9aa9__obsahKosiku')) { function _lbf9ae3f9aa9__obsahKosiku($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('obsahKosiku', FALSE)
 ?>    <div style="text-align: center">
-        <ul class="pagination" style="margin: 0 0 20px;">
-            <li <?php if ($paginator->first) { ?>class="disabled"<?php } ?>><a <?php if ($paginator->first == false) { ?>
-href="?page=<?php echo htmlSpecialChars($template->safeurl($paginator->getPage() - 1)) ?>
-"<?php } ?>>&laquo;</a></li>
-            <?php for ($i = 1; $i <= $paginator->pageCount; $i++) { ?><li <?php if ($paginator->getPage() == $i) { ?>
-class="active"<?php } ?>><!--PAGE--><a class="" href="?page=<?php echo htmlSpecialChars($template->safeurl($i)) ?>
-"><?php echo Nette\Templating\Helpers::escapeHtml($i, ENT_NOQUOTES) ?></a></li><?php } ?>
-
-            <li <?php if ($paginator->last) { ?>class="disabled"<?php } ?>><a <?php if ($paginator->last == false) { ?>
-href="?page=<?php echo htmlSpecialChars($template->safeurl($paginator->getPage() + 1)) ?>
-"<?php } ?>>&raquo;</a></li>
+        <ul class="pagination" style="margin: 0 0 20px;"<?php echo ' id="' . $_control->getSnippetId('pagi') . '"' ?>>
+<?php call_user_func(reset($_l->blocks['_pagi']), $_l, $template->getParameters()) ?>
         </ul>
     </div>
 <?php if ($items->fetch() == false) { ?>
@@ -75,6 +66,23 @@ href="?page=<?php echo htmlSpecialChars($template->safeurl($paginator->getPage()
 ">Koupit&raquo;</a>
 </div>
 <?php } 
+}}
+
+//
+// block _pagi
+//
+if (!function_exists($_l->blocks['_pagi'][] = '_lb00dc52de46__pagi')) { function _lb00dc52de46__pagi($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('pagi', FALSE)
+?>            <li <?php if ($paginator->first) { ?>class="disabled"<?php } ?>><a class="ajax <?php if ($paginator->first == false) { ?>
+disabled<?php } ?>" href="<?php echo htmlSpecialChars($_control->link("change!", array($paginator->getPage()-1))) ?>
+">&laquo;</a></li>
+            <?php for ($i = 1; $i <= $paginator->pageCount; $i++) { ?><li <?php if ($paginator->getPage() == $i) { ?>
+class="active"<?php } ?>><!--PAGE--><a class="ajax" href="<?php echo htmlSpecialChars($_control->link("change!", array($i))) ?>
+"><?php echo Nette\Templating\Helpers::escapeHtml($i, ENT_NOQUOTES) ?></a></li><?php } ?>
+
+            <li <?php if ($paginator->last) { ?>class="disabled"<?php } ?>><a class="ajax <?php if ($paginator->last == false) { ?>
+disabled<?php } ?>" href="<?php echo htmlSpecialChars($_control->link("change!", array($paginator->getPage()+1))) ?>
+">&raquo;</a></li>
+<?php
 }}
 
 //

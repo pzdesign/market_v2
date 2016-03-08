@@ -17,12 +17,26 @@ $.nette.ext({
 	}
         if(payload.caa){
         alertify.log("Nyní máte "+ payload.caa.itemCount +"x v košíku  "+ payload.caa.itemName );
-    }    
+    }   
+        if(payload.lim){
+        alertify.log("Nyní máte "+ payload.lim.limitMin +"x v košíku  "+ payload.lim.limitMax );
+    }       
     }
 });
 
 $(document).ready(function(){
     $(".jstooltip").tooltip({html: true});
+
+
+
+
+
+});
+
+var slider = new Slider('#ex1', {
+    formatter: function(value) {
+        return 'Current value: ' + value;
+    }
 });
 
 function randomString()

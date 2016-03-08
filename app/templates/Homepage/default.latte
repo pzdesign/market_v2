@@ -1,10 +1,12 @@
 {block #content}
+    <div class='row text-center' style="margin-top: 50px;margin-bottom:50px;" > 
+<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="40" data-slider-step="1" data-slider-value="14"/>
+    </div>
 {snippet list}
     <div n:if="$motd !== null" class='alert alert-success'>{$motd|noescape}</div>
     {if $items->fetch() == false}
     <div class="alert alert-danger">Momentálně se žádný item neprodává</div>
     {else}
- 
 
     <div style="text-align: center">
         <ul n:snippet="pagi" class="pagination" style="margin: 0 0 20px;">
@@ -14,9 +16,6 @@
         </ul>
     </div>
 
-               <a href="?do=limit" class='btn btn-primary btn-xs buy jstooltip ajax'>
-                    <span class='glyphicon glyphicon-shopping-cart'></span>Koupit
-                </a>  
     <div class='row'>
         {foreach $items as $item}
             <div class="col-md-3">

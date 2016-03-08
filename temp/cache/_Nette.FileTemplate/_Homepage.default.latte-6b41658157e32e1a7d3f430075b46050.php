@@ -1,17 +1,19 @@
-<?php //netteCache[01]000373a:2:{s:4:"time";s:21:"0.44446300 1457468608";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:59:"C:\xampp\htdocs\market\app\templates\Homepage\default.latte";i:2;i:1457468607;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000373a:2:{s:4:"time";s:21:"0.34207000 1457474668";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:59:"C:\xampp\htdocs\market\app\templates\Homepage\default.latte";i:2;i:1457474667;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\Homepage\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '8k23qcqtlc')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'yadt0rwbfc')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lbd40ca44590_content')) { function _lbd40ca44590_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
- ?>
+if (!function_exists($_l->blocks['content'][] = '_lba54b93694c_content')) { function _lba54b93694c_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+?>    <div class='row text-center' style="margin-top: 50px;margin-bottom:50px;" > 
+<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="40" data-slider-step="1" data-slider-value="14">
+    </div>
 <div id="<?php echo $_control->getSnippetId('list') ?>"><?php call_user_func(reset($_l->blocks['_list']), $_l, $template->getParameters()) ?>
 </div><?php
 }}
@@ -19,12 +21,11 @@ if (!function_exists($_l->blocks['content'][] = '_lbd40ca44590_content')) { func
 //
 // block _list
 //
-if (!function_exists($_l->blocks['_list'][] = '_lb9ef0e80cc1__list')) { function _lb9ef0e80cc1__list($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('list', FALSE)
+if (!function_exists($_l->blocks['_list'][] = '_lbc1eac36e90__list')) { function _lbc1eac36e90__list($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('list', FALSE)
 ;if ($motd !== null) { ?>    <div class='alert alert-success'><?php echo $motd ?></div>
 <?php } if ($items->fetch() == false) { ?>
     <div class="alert alert-danger">Momentálně se žádný item neprodává</div>
 <?php } else { ?>
- 
 
     <div style="text-align: center">
         <ul class="pagination" style="margin: 0 0 20px;"<?php echo ' id="' . $_control->getSnippetId('pagi') . '"' ?>>
@@ -32,9 +33,6 @@ if (!function_exists($_l->blocks['_list'][] = '_lb9ef0e80cc1__list')) { function
         </ul>
     </div>
 
-               <a href="?do=limit" class='btn btn-primary btn-xs buy jstooltip ajax'>
-                    <span class='glyphicon glyphicon-shopping-cart'></span>Koupit
-                </a>  
     <div class='row'>
 <?php $iterations = 0; foreach ($items as $item) { ?>
             <div class="col-md-3">
@@ -86,7 +84,7 @@ href="?page=<?php echo htmlSpecialChars($template->safeurl($paginator->getPage()
 //
 // block _pagi
 //
-if (!function_exists($_l->blocks['_pagi'][] = '_lbfdacf68a80__pagi')) { function _lbfdacf68a80__pagi($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('pagi', FALSE)
+if (!function_exists($_l->blocks['_pagi'][] = '_lb7e03430353__pagi')) { function _lb7e03430353__pagi($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('pagi', FALSE)
 ?>            <li <?php if ($paginator->first) { ?>class="disabled"<?php } ?>><a class="ajax <?php if ($paginator->first == false) { ?>
 disabled<?php } ?>" href="<?php echo htmlSpecialChars($_control->link("change!", array($paginator->getPage()-1))) ?>
 ">&laquo;</a></li>
