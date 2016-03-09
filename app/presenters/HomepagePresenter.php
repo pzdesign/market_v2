@@ -6,6 +6,7 @@
 class HomepagePresenter extends BasePresenter
 {
     private $paginator;
+    private $range;
     
     public function actionDefault($page = 1){
 	$paginator = new Nette\Utils\Paginator;
@@ -22,10 +23,12 @@ class HomepagePresenter extends BasePresenter
     }
 
     public function renderDefault() {	
-    $this->template->items = $this->itr->getItemsForServer($this->getView(), $this->paginator->getLength(), $this->paginator->getOffset());
+    //$this->template->items = $this->itr->getItemsForServer($this->getView(), $this->paginator->getLength(), $this->paginator->getOffset());
 	$this->template->paginator = $this->paginator;
 	$this->template->motd = $this->sr->getMOTD();
+	$this->template->range = $this->range;
 
+		$this->template->items = $this->itr->getItemsForServer($this->getView(), $this->range,0);
     }
 
    public function handleChange($page)
@@ -39,6 +42,21 @@ class HomepagePresenter extends BasePresenter
 	    $this->redrawControl('list');
 	    return;
     }
+
+
+   public function handleChangeRange($range)
+    {
+
+	    if(!$this->isAjax()){
+		$this->redirect("this");
+	    }
+
+		$this->range = $range;
+		$this->paginator->setItemsPerPage($range);
+		$this->template->items = $this->itr->getItemsForServer($this->getView(), $range,0);
+	    $this->redrawControl('list');
+	    return;
+    }    
 
 
     public function handleAddToCart($itemId, $itemCount){

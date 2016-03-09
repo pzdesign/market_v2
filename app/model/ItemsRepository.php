@@ -13,6 +13,10 @@ class ItemsRepository extends Repository {
         return $this->findBy(array('server' => $server, 'visible' => '1'))->limit($limit, $offset);
     }
     
+    public function getItemsLimited($server, $limit) {
+        return $this->findBy(array('server' => $server, 'visible' => '1'))->limit($limit);
+    }
+
     public function getItemCount($server){
 	return $this->findBy(array('server' => $server, 'visible' => '1'))->count();
     }

@@ -1,30 +1,30 @@
-<?php //netteCache[01]000364a:2:{s:4:"time";s:21:"0.00459000 1457472492";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:50:"C:\xampp\htdocs\market\app\templates\@layout.latte";i:2;i:1457472488;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000364a:2:{s:4:"time";s:21:"0.30744400 1457513929";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:50:"C:\xampp\htdocs\market\app\templates\@layout.latte";i:2;i:1457513909;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\@layout.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, '4f9p4hbuuo')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'h06ex89vhv')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block title
 //
-if (!function_exists($_l->blocks['title'][] = '_lb6a18b670db_title')) { function _lb6a18b670db_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['title'][] = '_lb723d10303f_title')) { function _lb723d10303f_title($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ?>Main<?php
 }}
 
 //
 // block head
 //
-if (!function_exists($_l->blocks['head'][] = '_lb2006b2c695_head')) { function _lb2006b2c695_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['head'][] = '_lba64f6756c6_head')) { function _lba64f6756c6_head($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
 ;
 }}
 
 //
 // block _userInfo
 //
-if (!function_exists($_l->blocks['_userInfo'][] = '_lb0dcbbfd4a7__userInfo')) { function _lb0dcbbfd4a7__userInfo($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('userInfo', FALSE)
+if (!function_exists($_l->blocks['_userInfo'][] = '_lbdffd482065__userInfo')) { function _lbdffd482065__userInfo($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('userInfo', FALSE)
 ?>                <tr>
                     <td>Uživatelské jméno</td>
                     <td><?php echo Nette\Templating\Helpers::escapeHtml($user->getIdentity()->username, ENT_NOQUOTES) ?></td>
@@ -51,20 +51,35 @@ if (!function_exists($_l->blocks['_userInfo'][] = '_lb0dcbbfd4a7__userInfo')) { 
 //
 // block _totalCost
 //
-if (!function_exists($_l->blocks['_totalCost'][] = '_lbfb9c98e2cc__totalCost')) { function _lbfb9c98e2cc__totalCost($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('totalCost', FALSE)
+if (!function_exists($_l->blocks['_totalCost'][] = '_lb21ef92b42c__totalCost')) { function _lb21ef92b42c__totalCost($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('totalCost', FALSE)
 ;echo Nette\Templating\Helpers::escapeHtml($totalCost, ENT_NOQUOTES) ;echo Nette\Templating\Helpers::escapeHtml($parametry['mena'], ENT_NOQUOTES) ;
 }}
 
 //
 // block _flashMessages
 //
-if (!function_exists($_l->blocks['_flashMessages'][] = '_lbc04add94ee__flashMessages')) { function _lbc04add94ee__flashMessages($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('flashMessages', FALSE)
+if (!function_exists($_l->blocks['_flashMessages'][] = '_lb006bdd6d9e__flashMessages')) { function _lb006bdd6d9e__flashMessages($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('flashMessages', FALSE)
 ;$iterations = 0; foreach ($flashes as $flash) { ?>	<div class="alert alert-<?php echo htmlSpecialChars($flash->type) ?> alert-dismissable fade in">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <?php echo Nette\Templating\Helpers::escapeHtml($flash->message, ENT_NOQUOTES) ?>
 
 	</div>
 <?php $iterations++; } 
+}}
+
+//
+// block scripts
+//
+if (!function_exists($_l->blocks['scripts'][] = '_lbcb867eb16e_scripts')) { function _lbcb867eb16e_scripts($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+?>    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/jquery.js"></script>
+    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/alertify.min.js"></script>
+    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/netteForms.js"></script>
+    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/bootstrap-slider.js"></script>
+    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/nette.ajax.js"></script>
+    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/main.js"></script>
+
+<?php
 }}
 
 //
@@ -104,11 +119,14 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
     <link rel="stylesheet" href="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/css/alertify.bootstrap.css">
     <link rel="stylesheet" href="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/css/bootstrap-slider.css">
 	<link rel="shortcut icon" href="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/favicon.ico">
-	<?php call_user_func(reset($_l->blocks['head']), $_l, get_defined_vars())  ?>
+        <?php call_user_func(reset($_l->blocks['head']), $_l, get_defined_vars())  ?>
+
+   
 
 </head>
 
 <body>
+
 <div class="wrap">
         <div class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -158,12 +176,7 @@ ob_start(); call_user_func(reset($_l->blocks['title']), $_l, get_defined_vars())
 <?php } if ($user->isLoggedIn()) { ?>    <div>Market 0.1; Coded by and designed by zdenda204. This application uses <a href="http://nette.org/">Nette Framework 2.1</a> & <a href="http://getbootstrap.com/">Bootstrap 2.3.2</a></div>
 <?php } ?>
     </div>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/jquery.js"></script>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/bootstrap.min.js"></script>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/alertify.min.js"></script>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/netteForms.js"></script>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/bootstrap-slider.js"></script>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/nette.ajax.js"></script>
-    <script src="<?php echo htmlSpecialChars($template->safeurl($basePath)) ?>/js/main.js"></script>
+        
+<?php call_user_func(reset($_l->blocks['scripts']), $_l, get_defined_vars())  ?>
 </body>
 </html>

@@ -1,8 +1,24 @@
 {block #content}
+<script>
+
+function mychange() {
+   var range =  $("#ex1").val();
+    $.nette.ajax({
+    url: {link changeRange!},
+            data: {
+            range: range
+            }
+    });
+}
+
+</script>
+
+
     <div class='row text-center' style="margin-top: 50px;margin-bottom:50px;" > 
-<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="40" data-slider-step="1" data-slider-value="14"/>
+<input id="ex1" name="range" onChange="mychange()" class="ajax" data-slider-id='ex1Slider' type="text" data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="20"/>
     </div>
 {snippet list}
+{$range}
     <div n:if="$motd !== null" class='alert alert-success'>{$motd|noescape}</div>
     {if $items->fetch() == false}
     <div class="alert alert-danger">Momentálně se žádný item neprodává</div>
@@ -46,3 +62,35 @@
     {/if}
         {/snippet}    
 {/block}
+<script>
+
+
+
+function mychange() {
+
+  console.log('bla');
+
+}
+
+/*
+    function refresh() {
+
+            $('#ex1').on('change', function(event) {
+    $.nette.ajax({
+        console.log("test");
+    url: {link changeRange!},
+            data: {
+            range: $(this).val()
+            }
+    });
+    });
+
+    }
+
+    $.nette.ext('name', {
+        complete: function () {
+            refresh();
+        }
+    });
+*/
+</script>

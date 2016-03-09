@@ -1,16 +1,16 @@
-<?php //netteCache[01]000369a:2:{s:4:"time";s:21:"0.72562300 1457471810";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\xampp\htdocs\market\app\templates\Cart\default.latte";i:2;i:1457471809;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
+<?php //netteCache[01]000369a:2:{s:4:"time";s:21:"0.01093700 1457509602";s:9:"callbacks";a:2:{i:0;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:9:"checkFile";}i:1;s:55:"C:\xampp\htdocs\market\app\templates\Cart\default.latte";i:2;i:1457509340;}i:1;a:3:{i:0;a:2:{i:0;s:19:"Nette\Caching\Cache";i:1;s:10:"checkConst";}i:1;s:25:"Nette\Framework::REVISION";i:2;s:22:"released on 2013-12-31";}}}?><?php
 
 // source file: C:\xampp\htdocs\market\app\templates\Cart\default.latte
 
 ?><?php
 // prolog Nette\Latte\Macros\CoreMacros
-list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'jrsq2bv7aw')
+list($_l, $_g) = Nette\Latte\Macros\CoreMacros::initRuntime($template, 'quvmz8u0bh')
 ;
 // prolog Nette\Latte\Macros\UIMacros
 //
 // block content
 //
-if (!function_exists($_l->blocks['content'][] = '_lb259c9cd7fd_content')) { function _lb259c9cd7fd_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
+if (!function_exists($_l->blocks['content'][] = '_lbf58983111a_content')) { function _lbf58983111a_content($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v
  ?>
 <div id="<?php echo $_control->getSnippetId('obsahKosiku') ?>"><?php call_user_func(reset($_l->blocks['_obsahKosiku']), $_l, $template->getParameters()) ?>
 </div><?php
@@ -19,7 +19,7 @@ if (!function_exists($_l->blocks['content'][] = '_lb259c9cd7fd_content')) { func
 //
 // block _obsahKosiku
 //
-if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lbf9ae3f9aa9__obsahKosiku')) { function _lbf9ae3f9aa9__obsahKosiku($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('obsahKosiku', FALSE)
+if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lb543374d125__obsahKosiku')) { function _lb543374d125__obsahKosiku($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('obsahKosiku', FALSE)
 ?>    <div style="text-align: center">
         <ul class="pagination" style="margin: 0 0 20px;"<?php echo ' id="' . $_control->getSnippetId('pagi') . '"' ?>>
 <?php call_user_func(reset($_l->blocks['_pagi']), $_l, $template->getParameters()) ?>
@@ -71,7 +71,7 @@ if (!function_exists($_l->blocks['_obsahKosiku'][] = '_lbf9ae3f9aa9__obsahKosiku
 //
 // block _pagi
 //
-if (!function_exists($_l->blocks['_pagi'][] = '_lb00dc52de46__pagi')) { function _lb00dc52de46__pagi($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('pagi', FALSE)
+if (!function_exists($_l->blocks['_pagi'][] = '_lbe7e259d7c1__pagi')) { function _lbe7e259d7c1__pagi($_l, $_args) { foreach ($_args as $__k => $__v) $$__k = $__v; $_control->redrawControl('pagi', FALSE)
 ?>            <li <?php if ($paginator->first) { ?>class="disabled"<?php } ?>><a class="ajax <?php if ($paginator->first == false) { ?>
 disabled<?php } ?>" href="<?php echo htmlSpecialChars($_control->link("change!", array($paginator->getPage()-1))) ?>
 ">&laquo;</a></li>

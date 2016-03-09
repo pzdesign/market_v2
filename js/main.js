@@ -29,15 +29,24 @@ $(document).ready(function(){
 
 
 
-
-
-});
-
-var slider = new Slider('#ex1', {
+$('#ex1').slider({
     formatter: function(value) {
         return 'Current value: ' + value;
     }
 });
+});
+
+
+/*
+$( "div.min-slider-handle" ).click(function() {
+  console.log('bla');
+});
+
+*/
+// With JQuery
+
+
+
 
 function randomString()
 {

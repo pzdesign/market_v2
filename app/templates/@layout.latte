@@ -21,10 +21,13 @@
     <link rel="stylesheet" href="{$basePath}/css/alertify.bootstrap.css" />
     <link rel="stylesheet" href="{$basePath}/css/bootstrap-slider.css" />
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
-	{block head}{/block}
+        {block head}{/block}
+   
+
 </head>
 
 <body>
+
 <div class="wrap">
         <div class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -90,6 +93,8 @@
     <div n:if="$user->isInRole('admin')"><a n:href="Admin:">Administrace</a></div>
     <div n:if="$user->isLoggedIn()">Market 0.1; Coded by and designed by zdenda204. This application uses <a href="http://nette.org/">Nette Framework 2.1</a> & <a href="http://getbootstrap.com/">Bootstrap 2.3.2</a></div>
     </div>
+        
+        {block scripts}
     <script src="{$basePath}/js/jquery.js"></script>
     <script src="{$basePath}/js/bootstrap.min.js"></script>
     <script src="{$basePath}/js/alertify.min.js"></script>
@@ -97,5 +102,7 @@
     <script src="{$basePath}/js/bootstrap-slider.js"></script>
     <script src="{$basePath}/js/nette.ajax.js"></script>
     <script src="{$basePath}/js/main.js"></script>
+
+        {/block}
 </body>
 </html>
